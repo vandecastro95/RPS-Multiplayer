@@ -20,13 +20,13 @@
     <div class="hero-nav__inner">
         <div class="container-fluid">
             <div class="row border border-0">
-                <div class="col-4 bg-rock hvr-bob choices" data="Rock">
+                <div id="rock" class="col-4 bg-rock hvr-bob choices text-black" data="Rock">
                     <img src="assets/images/rock.jpg">
                 </div>
-                <div class="col-4 bg-paper hvr-bob choices" data="Paper">
+                <div id="paper" class="col-4 bg-paper hvr-bob choices text-black" data="Paper">
                     <img src="assets/images/paper.jpg">
                 </div>
-                <div class="col-4 bg-scissors hvr-bob choices" data="Scissors">
+                <div id="scissors" class="col-4 bg-scissors hvr-bob choices text-black " data="Scissors">
                     <img src="assets/images/scissors.jpg">
                 </div>
             </div>
@@ -37,8 +37,9 @@
 
 <div class="container-fluid main">
     <div class="row">
-        <h1 class="text-dark rps mb-3"> ROCK PAPER SCISSORS</h1>
+        <h1 class="text-dark rps"> ROCK PAPER SCISSORS</h1>
     </div>
+    
 </div>
 
 <div class="container-fluid text-center bg-black text-center">
@@ -50,18 +51,15 @@
             <div>
                 <h1 class="user display-1 mx-auto"></h1>
             </div>
-            <div>
-                    <button type="button" class="btn btn-secondary mt-2">Try Again</button>
-            </div>
         </div>
         <div class="col-3 mx-auto">
-            <div class="winorlose">
+            <h1 class="winorlose">
 
-            </div>
+            </h1>
             <div class=" mx-auto">
                 <h3 class="score"></h3>
             </div>
-            
+
 
         </div>
 
@@ -73,16 +71,18 @@
             <div>
                 <h1 class="computer display-1 mx-auto"></h1>
             </div>
-            
+
         </div>
 
     </div>
     <div class="fixed-bottom bottom mt-2">
-        
+            
     </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
 <script src="assets/javascript/app.js" async defer></script>
 </body>
 
