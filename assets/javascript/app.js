@@ -107,6 +107,7 @@ function changeDisplay(userInput, computerRandom, winorlose) {
 
 $(document).ready(function () {
 
+
     storeData();
     players = localStorage.getItem("players");
 
@@ -187,11 +188,17 @@ function storeData() {
 
 
         event.preventDefault();
+
         let usersRef = database.ref().child("Users");
-        usersRef.set({
-            move: 0
-        })
-        let player;
+        if ($(this).text() == "Single Player") {
+            console.log($("#Username"));
+            let username = $("#Username").val().trim();
+            checkifExists(username);
+            $(".wrapper").empty();
+            usersRef.on("child_added", snapshot => {
+                
+            })
+        }
 
         if ($(this).text() == "Multiplayer") {
 
@@ -203,14 +210,10 @@ function storeData() {
 
             connectedRef.on("value", function (snap) {
 
-                // If they are connected..
                 if (snap.val()) {
 
-                    // Add user to the connections list.
                     let con = connections.push(true);
 
-                    // Remove user from the connection list when they disconnect.
-                    con.onDisconnect().remove();
                 }
             });
 
@@ -218,27 +221,26 @@ function storeData() {
                 if (Object.keys(snapshot.val()).indexOf('1') === -1) {
                     playernumber = '1';
                     opponentnumber = '2';
-                    alert(playernumber)
+
                 } else if (Object.keys(snapshot.val()).indexOf('2') === -1) {
                     playernumber = '2';
                     opponentnumber = '1';
                 }
 
-                // If you got a player number, you're 1 or 2.
                 if (playernumber !== '0') {
 
                     con = connections.child(playernumber);
                     con.set(player);
-                    $(".div1").removeClass("hidden");
-                    $(".div2").addClass("hidden");
-                    // When I disconnect, remove this device.
+
+                    player = $("#Username").val().trim();
+                    checkifExists(player);
+
+                    if(con.child("2") != null){$(".wrapper").empty();}
                     con.onDisconnect().remove();
 
-                    // If 1 and 2 were taken, your number is still 0.
+            
                 } else {
-                    // Remove the name form and put the alert there.
 
-                    // And disconnect from Firebase.
                     app.delete();
                 }
             })
@@ -246,37 +248,25 @@ function storeData() {
             // connectionsRef.on("value", function (snap) {
             //     alert(Object.keys(snap.val()).indexOf('1'))
 
-            if ($(this).text() == "Single Player") {
-                console.log($("#Username"));
-                let username = $("#Username").val().trim();
-                checkifExists(username);
-                $(".div1").removeClass("hidden");
-                $(".div2").addClass("hidden");
-                usersRef.on("child_added", snapshot => {
-                    
-                })
-
-               
-            }
+            
 
 
-            function checkifExists(username) {
-                let usersRef = database.ref().child("Users");
-
-
-                usersRef.orderByChild("name").equalTo(username).on("value", function (snapshot) {
-                    if (snapshot.exists()) {
-                        username = snapshot.child("name").val();
-                        console.log("1");
-                    }
-                    else {
-                        
-                    }
-                })
-            }
+            
         }
     })
 
+}
+
+function checkifExists(username) {
+    let usersRef = database.ref().child("Users");
+    usersRef.on("value", snapshot => {
+        if (snapshot.exists()) {
+            username = snapshot.child("name").val();
+        }
+        else {
+            usersRef.push(username);
+        }
+    })
 }
 
 // var database = firebase.database();
