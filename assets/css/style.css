@@ -1,0 +1,278 @@
+html, body {
+    /* height: 100vh; */
+    background: black;
+}
+
+.container-fluid {
+    
+}
+
+
+
+.head{
+    height: 10vh;
+}
+
+.bg-black {
+    background: black;
+}
+
+.text-black {
+    color: black;
+}
+
+.bg-rock {
+    background: #3296B8;
+    height: 311px;
+
+}
+
+.bg-paper {
+    background: #FEC657;
+    /* height: 100vh; */
+    height: 311px;
+}
+
+
+.bg-scissors {
+    background: #CE1141;
+    /* height: 100vh; */
+    height: 311px;
+}
+
+.scissorsImg{
+    position: absolute;
+    left: 20%;
+}
+
+.paperImg {
+    position: absolute;
+    left: 20%;
+}
+
+.rockImg {
+    position: absolute;
+    left: 20%;
+}
+
+.Rock{
+    color: #3296B8;
+}
+
+.Paper {
+    color: #FEC657
+}
+
+.Scissors {
+    color: #CE1141;
+}
+
+
+Bob
+@-webkit-keyframes hvr-bob {
+    0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+    }
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    
+  }
+  @keyframes hvr-bob {
+    0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+    }
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @-webkit-keyframes hvr-bob-float {
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes hvr-bob-float {
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  .hvr-bob {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+    -webkit-animation-name: hvr-bob-float, hvr-bob;
+    animation-name: hvr-bob-float, hvr-bob;
+    -webkit-animation-duration: .3s, 1.5s;
+    animation-duration: .3s, 1.5s;
+    -webkit-animation-delay: 0s, .3s;
+    animation-delay: 0s, .3s;
+    -webkit-animation-timing-function: ease-out, ease-in-out;
+    animation-timing-function: ease-out, ease-in-out;
+    -webkit-animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1, infinite;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: normal, alternate;
+    animation-direction: normal, alternate;
+  } 
+
+  @import url(https://fonts.googleapis.com/css?family=Montserrat);
+body,html{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.hero-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    min-height: 105px;
+    background: #000;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    z-index: 50;
+}
+    h1{
+        color: #efefef;
+        font-size: 5vw;
+    }
+    h1:before{
+        content: "";
+        background: rgba(#000, 0);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: background 400ms;
+    }
+.fixme {
+    position: fixed;
+}
+
+.rps {
+margin-bottom: 0;
+}
+
+.rps::after {
+    content: ""
+}
+
+.page-content{
+    line-height: 1.625;
+    position: absolute;
+    top: 75%;
+    width: 100%;
+
+}
+
+.highheight {
+    height: 160vh;
+}
+
+.h-50 {
+    margin-top: 70px;
+    transition-property: all;
+    transition-duration: 1s
+}
+
+.computerInput {
+    position: absolute;
+    top: 110%;
+}
+
+.hidden {
+    display: none;
+}
+
+.animateHeight {
+    
+    transition: all;
+    height: 500px;
+}
+
+
+@import "bourbon";
+
+body {
+	background: #eee !important;	
+}
+
+.wrapper {	
+	margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+}
+  .form-signin-heading,
+	.checkbox {
+	  margin-bottom: 30px;
+	}
+
+	.checkbox {
+	  font-weight: normal;
+	}
+
+	.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+	input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+
+	input[type="password"] {
+	  margin-bottom: 20px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+    }
+    
+    .hidden {
+        display: none;
+    }
+
+
+ 
+  
+
